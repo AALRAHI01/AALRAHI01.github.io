@@ -4,94 +4,241 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Abdullah Al Rahi — Portfolio</title>
-  <meta name="description" content="Professional portfolio website." />
+  <meta name="description" content="Abdullah Al Rahi — Supply Chain Analyst | Demand Planner | MASc Industrial Engineering" />
+
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#101a2e;
-      --text:#eaf0ff;
-      --muted:#b6c3e6;
-      --line:rgba(234,240,255,.12);
-      --accent:#7aa2ff;
-      --accent2:#53f2c8;
-      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      /* Metallic Black Theme */
+      --bg0:#06070a;
+      --bg1:#0b0d12;
+      --bg2:#0f131a;
+
+      --card0:#0b0f14;
+      --card1:#0f141c;
+
+      --text:#eef2ff;
+      --muted:#b3bccf;
+
+      --line:rgba(255,255,255,.10);
+      --line2:rgba(255,255,255,.16);
+
+      /* "Chrome" accents */
+      --chrome1:#9aa3b2;
+      --chrome2:#e7ecf6;
+
+      /* Subtle premium highlight (cool silver + faint cyan) */
+      --accent:#cfd6e6;
+      --accent2:#58f0ff;
+
+      --shadow: 0 18px 50px rgba(0,0,0,.55);
+      --shadow2: 0 10px 25px rgba(0,0,0,.45);
+      --radius:18px;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      background: radial-gradient(900px 450px at 20% 10%, rgba(122,162,255,.25), transparent 55%),
-                  radial-gradient(700px 350px at 80% 20%, rgba(83,242,200,.18), transparent 55%),
-                  var(--bg);
       color:var(--text);
       line-height:1.55;
+
+      /* Metallic black backdrop */
+      background:
+        radial-gradient(1200px 520px at 15% 8%, rgba(231,236,246,.10), transparent 60%),
+        radial-gradient(900px 420px at 85% 18%, rgba(88,240,255,.10), transparent 58%),
+        radial-gradient(900px 420px at 50% 110%, rgba(154,163,178,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
     }
+
     a{color:inherit}
     .wrap{max-width:1100px;margin:0 auto;padding:24px}
+
     header{
-      position:sticky; top:0; backdrop-filter: blur(12px);
-      background: rgba(11,18,32,.6); border-bottom:1px solid var(--line);
+      position:sticky; top:0;
       z-index:10;
+      backdrop-filter: blur(14px);
+      background: rgba(6,7,10,.58);
+      border-bottom:1px solid rgba(255,255,255,.10);
     }
+
     .nav{
       display:flex; align-items:center; justify-content:space-between;
       gap:16px; padding:14px 24px;
       max-width:1100px; margin:0 auto;
     }
+
     .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
-    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
-    .brand b{letter-spacing:.2px}
+
+    /* Metallic logo dot */
+    .dot{
+      width:11px;height:11px;border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--chrome2), var(--chrome1) 45%, rgba(88,240,255,.35) 80%);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.15), 0 10px 25px rgba(0,0,0,.55);
+    }
+
+    .brand b{letter-spacing:.25px}
+
     .links{display:flex; gap:14px; flex-wrap:wrap}
-    .links a{opacity:.9; text-decoration:none; padding:8px 10px; border-radius:10px}
-    .links a:hover{background:rgba(234,240,255,.06)}
+    .links a{
+      opacity:.92;
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    .links a:hover{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+    }
+
     .hero{
       padding:44px 0 20px;
       display:grid; grid-template-columns: 1.35fr .65fr; gap:22px;
       align-items:stretch;
     }
     @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+
+    /* Metallic card */
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow);
+      position:relative;
+      border-radius:var(--radius);
       padding:22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03)),
+        linear-gradient(180deg, rgba(15,20,28,.92), rgba(11,15,20,.92));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      overflow:hidden;
     }
-    h1{margin:0 0 10px;font-size:42px;line-height:1.15}
-    @media (max-width: 520px){ h1{font-size:34px} }
+
+    /* Subtle chrome edge gleam */
+    .card:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(600px 220px at 20% 0%, rgba(231,236,246,.16), transparent 55%),
+        radial-gradient(600px 220px at 85% 10%, rgba(88,240,255,.10), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
+    }
+
+    /* Thin top highlight like brushed metal */
+    .card:after{
+      content:"";
+      position:absolute; left:18px; right:18px; top:12px; height:1px;
+      background: linear-gradient(90deg, transparent, rgba(231,236,246,.28), transparent);
+      pointer-events:none;
+    }
+
+    h1{margin:0 0 10px;font-size:40px;line-height:1.15}
+    @media (max-width: 520px){ h1{font-size:32px} }
+
+    h2{margin:0 0 10px;font-size:22px}
+
     .muted{color:var(--muted)}
+    .small{font-size:14px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;}
+
     .pillrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .pill{border:1px solid var(--line); padding:8px 10px; border-radius:999px; font-size:14px; color:var(--muted)}
+    .pill{
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:14px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow2);
+    }
+
     .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px; border-radius:12px; text-decoration:none; font-weight:600;
-      border:1px solid var(--line);
-      background: rgba(234,240,255,.06);
+      padding:10px 14px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:650;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03)),
+        rgba(15,20,28,.65);
+      box-shadow: var(--shadow2);
     }
-    .btn:hover{background: rgba(234,240,255,.10)}
+    .btn:hover{
+      filter:brightness(1.05);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    /* Metallic primary button */
     .btn.primary{
-      border:none;
-      background: linear-gradient(135deg,var(--accent),var(--accent2));
-      color:#07101f;
+      border:1px solid rgba(231,236,246,.28);
+      color:#07090d;
+      background:
+        linear-gradient(135deg, rgba(231,236,246,.95), rgba(154,163,178,.85) 45%, rgba(88,240,255,.55));
+      text-shadow: 0 1px 0 rgba(255,255,255,.45);
     }
-    .btn.primary:hover{filter:brightness(1.05)}
+
+    .btn.primary:hover{
+      filter:brightness(1.08);
+    }
+
     .grid{
       display:grid; grid-template-columns: repeat(3, 1fr);
       gap:18px; margin-top:18px;
     }
     @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
-    h2{margin:0 0 10px;font-size:22px}
-    .item{padding:18px;border-radius:16px;border:1px solid var(--line); background: rgba(16,26,46,.45)}
+
+    .item{
+      padding:18px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        rgba(9,12,17,.65);
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+    }
+    .item:before{
+      content:"";
+      position:absolute; inset:-40px -40px auto auto;
+      width:140px; height:140px;
+      background: radial-gradient(circle at 30% 30%, rgba(88,240,255,.18), transparent 65%);
+      transform: rotate(18deg);
+      opacity:.65;
+      pointer-events:none;
+    }
     .item b{display:block;margin-bottom:6px}
     .item p{margin:0;color:var(--muted)}
+
     .section{margin:26px 0}
     .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     @media (max-width: 900px){ .two{grid-template-columns:1fr} }
-    footer{padding:28px 0 34px; color:var(--muted); font-size:14px}
-    .small{font-size:14px}
+
     .kpi{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .kpi span{border:1px solid var(--line); border-radius:12px; padding:8px 10px; color:var(--muted)}
-    .hr{height:1px;background:var(--line);margin:18px 0}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;}
+    .kpi span{
+      border-radius:14px;
+      padding:8px 10px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+
+    .hr{height:1px;background:rgba(255,255,255,.12);margin:18px 0}
+
+    footer{padding:28px 0 34px; color:var(--muted); font-size:14px}
+
+    /* Print-friendly */
+    @media print{
+      header{display:none}
+      body{background:#fff;color:#000}
+      .card,.item{box-shadow:none;background:#fff;border:1px solid #ddd}
+      .muted{color:#333}
+      .btn{display:none}
+      a{color:#000;text-decoration:none}
+    }
   </style>
 </head>
 
@@ -100,11 +247,12 @@
   <div class="nav">
     <a class="brand" href="#top">
       <span class="dot"></span>
-      <b>Your Name</b>
+      <b>Abdullah Al Rahi</b>
     </a>
     <nav class="links">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -115,20 +263,22 @@
 
   <section class="hero">
     <div class="card">
-      <h1>Supply Chain Business Analyst / Industrial Engineer</h1>
+      <h1>Supply Chain Analyst | Demand Planner</h1>
       <p class="muted">
-        I help teams build and improve supply chain, production planning, inventory, and operational performance using data, process thinking, and clear stakeholder communication.
+        MASc Industrial Engineering • Procurement, Logistics & Operations Excellence • Ex Supply Chain Leader (Decathlon)
       </p>
 
       <div class="pillrow">
-        <span class="pill">Toronto, Canada</span>
-        <span class="pill">Supply Chain • Operations • Data Analytics </span>
+        <span class="pill">Toronto, Ontario, Canada</span>
+        <span class="pill">He/Him</span>
+        <span class="pill">Supply Chain • Planning • Procurement</span>
         <span class="pill">Excel • SQL • Power BI</span>
-        <span class="pill">Process Improvement</span>
+        <span class="pill">Lean / Six Sigma</span>
       </div>
 
       <div class="cta">
         <a class="btn primary" href="#contact">Contact Me</a>
+        <!-- Replace these with your real links -->
         <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
         <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
         <a class="btn" href="#" onclick="window.print();return false;">Print / Save PDF</a>
@@ -136,28 +286,33 @@
 
       <div class="hr"></div>
       <div class="kpi small">
-        <span>Focus: Supply Chain Logistics & Data Analytics</span>
+        <span>Focus: Logistics & Data Analytics</span>
         <span>Strength: Cross-functional execution</span>
-        <span>Style: Clear, KPI-driven reporting</span>
+        <span>Style: KPI-driven reporting</span>
       </div>
     </div>
 
     <div class="card">
       <h2>Quick Info</h2>
       <p class="muted small">
-        <span class="mono">Email:</span> abdullahalrahi018@gmail.com<br/>
-        <span class="mono">Location:</span> Toronto, ON<br/>
+        <span class="mono">Email:</span> <a href="mailto:abdullahalrahi018@gmail.com">abdullahalrahi018@gmail.com</a><br/>
+        <span class="mono">Location:</span> Toronto, ON, Canada<br/>
+        <span class="mono">Open to:</span> Supply Chain, Procurement, Demand Planner, Purchase & Data Analyst roles
       </p>
+
       <div class="hr"></div>
+
       <h2>Highlights</h2>
       <div class="item">
-        <b>Operational Reporting</b>
-        <p>Built dashboards and metrics to track OTIF, vendor performance, and inventory health.</p>
+        <b>Vendor KPI & Performance Management</b>
+        <p>Defined and tracked vendor-specific KPIs, led reviews, and drove corrective actions to improve execution.</p>
       </div>
+
       <div style="height:12px"></div>
+
       <div class="item">
-        <b>Process Improvement</b>
-        <p>Reduced manual effort using standardization, templates, and automation where appropriate.</p>
+        <b>End-to-End Planning & Logistics</b>
+        <p>Oversaw procurement, production timelines, shipping schedules, and warehouse coordination to meet demand.</p>
       </div>
     </div>
   </section>
@@ -166,8 +321,9 @@
     <div class="card">
       <h2>About</h2>
       <p class="muted">
-        Write 4–6 lines here that describe your professional story. Keep it practical:
-        what problems you solve, what tools you use, and what results you care about.
+        An enthusiastic soul, relentlessly trying to find out the best version of myself.
+        Professionally, I focus on building resilient supply chains through vendor management, demand planning,
+        KPI reporting, and continuous improvement—balancing cost, service level, and risk.
       </p>
     </div>
   </section>
@@ -175,63 +331,159 @@
   <section id="experience" class="section">
     <div class="card">
       <h2>Experience</h2>
+
       <div class="grid">
+
         <div class="item">
-          <b>Supply Chain Analyst — Company</b>
-          <p class="muted small">Apr 2025 – Present • Toronto</p>
-          <p class="muted">• Owned SKU-level reporting and replenishment insights.<br/>• Partnered with Ops, Finance, and Vendors to improve service levels.</p>
+          <b>Supply Chain Analyst — Silk &amp; Snow</b>
+          <p class="muted small">Apr 2025 – Present • Toronto, Ontario, Canada • On-site</p>
+          <p class="muted">
+            • Made vendor sourcing, procurement, and inventory planning decisions balancing cost, service level, and risk.<br/>
+            • Defined and tracked vendor KPIs; analyzed performance; led tactical planning with suppliers.<br/>
+            • Primary point of contact for overseas vendors and local suppliers; resolved issues and ensured clear reporting.<br/>
+            • Led vendor review meetings, driving corrective actions and continuous performance improvement.<br/>
+            • Oversaw end-to-end operations: PO generation, procurement, production, delivery, and cross-functional coordination.<br/>
+            • Managed inbound/outbound logistics; optimized schedules with freight forwarders, carriers, and distribution partners.<br/>
+            • Built ERP + Excel dashboards to identify trends, risks, and improvement opportunities; applied Lean/Six Sigma methods.<br/>
+            • Led demand planning activities aligning forecasts with procurement, production, and inventory strategies.
+          </p>
         </div>
+
         <div class="item">
-          <b>Previous Role — Company</b>
-          <p class="muted small">2024 – 2025</p>
-          <p class="muted">• Add 2–3 bullets showing measurable wins and tools used.</p>
+          <b>In-Store Service Agent — Geek Squad (Best Buy)</b>
+          <p class="muted small">Aug 2024 – Aug 2025 • Windsor, Ontario, Canada • On-site</p>
+          <p class="muted">
+            • Delivered technical support and device service with strong customer communication and documentation.<br/>
+            • Worked in a fast-paced retail environment, supporting troubleshooting and service operations.
+          </p>
         </div>
+
         <div class="item">
-          <b>Earlier Role — Company</b>
-          <p class="muted small">2020 – 2024</p>
-          <p class="muted">• Add 2–3 bullets focused on impact, KPIs, and collaboration.</p>
+          <b>Graduate Research &amp; Teaching Assistant — University of Windsor</b>
+          <p class="muted small">Sep 2023 – Jan 2025 • Windsor, Ontario, Canada • On-site</p>
+          <p class="muted">
+            • Supported research and teaching in Industrial Engineering, with focus on analytical problem-solving and communication.<br/>
+            • Assisted with course delivery, student support, and academic coordination.
+          </p>
+        </div>
+
+      </div>
+
+      <div style="height:18px"></div>
+
+      <div class="two">
+        <div class="item">
+          <b>Supply Chain, Planning &amp; Procurement Leader / Analyst — Decathlon Sports Bangladesh</b>
+          <p class="muted small">Aug 2020 – Aug 2023 • Dhaka, Bangladesh • Full-time</p>
+          <p class="muted">
+            • Led end-to-end sourcing, production planning, costing, and supplier development for the Knit business.<br/>
+            • Drove 153% growth in turnover and increased shipped volume by 40% over three years.<br/>
+            • Reduced end-to-end production lead time by 44% by streamlining processes and removing bottlenecks.<br/>
+            • Led SSE initiative, increasing vendor autonomy from 45% to 90% through capability building.<br/>
+            • Delivered training on capacity planning, component inventory management, and Time &amp; Action tracking.<br/>
+            • Launched MTS production model to reduce lead time; served as a certified global Order Management Trainer.<br/>
+            • Project leader for Liz-LIDA supply chain contributing to ~$60M USD annual turnover.
+          </p>
+        </div>
+
+        <div class="item">
+          <b>Production Leader (Supply Chain) / Industrial Engineer — Decathlon Sports Bangladesh</b>
+          <p class="muted small">Feb 2020 – Aug 2020 • Dhaka, Bangladesh • Contract</p>
+          <p class="muted">
+            • Led quality projects, defect control, warehouse inventory management, 5S, and Gemba walks.<br/>
+            • Improved inspection routines and supported operational throughput and quality performance.
+          </p>
         </div>
       </div>
+
+      <div style="height:12px"></div>
+
+      <div class="item">
+        <b>GED Instructor — Smart’s Education</b>
+        <p class="muted small">Mar 2018 – Feb 2020 • Sylhet, Bangladesh</p>
+        <p class="muted">
+          • Delivered GED instruction and supported student learning outcomes through structured teaching plans.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="education" class="section">
+    <div class="card">
+      <h2>Education</h2>
+
+      <div class="two">
+        <div class="item">
+          <b>University of Windsor</b>
+          <p class="muted small">Master of Applied Science (MASc), Industrial Engineering • Sep 2023 – Feb 2025</p>
+          <p class="muted">
+            Grade: 4.00/4.00<br/>
+            Graduate Teaching Assistant &amp; Research Assistant during the program.
+          </p>
+        </div>
+
+        <div class="item">
+          <b>Shahjalal University of Science and Technology</b>
+          <p class="muted small">Bachelor of Engineering (BE), Industrial Engineering • 2016 – 2020</p>
+          <p class="muted">
+            CGPA: 3.42 / 4.00
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <section id="projects" class="section">
     <div class="card">
       <h2>Projects</h2>
+
       <div class="two">
         <div class="item">
-          <b>Inventory Health Dashboard (Excel/Power BI)</b>
-          <p class="muted">Tracked sell-through, weeks of cover, and stockout risk. Delivered weekly insights for planning decisions.</p>
+          <b>Supply Chain KPI Dashboard (Excel/Power BI)</b>
+          <p class="muted">
+            KPI reporting for vendor performance, OTIF, and inventory health—turning ERP data into weekly decision-ready insights.
+          </p>
         </div>
+
         <div class="item">
-          <b>SQL Customer/Order Analysis</b>
-          <p class="muted">Segmented customers and summarized revenue contribution by cohort to support commercial decisions.</p>
+          <b>SQL Customer / Order Analysis</b>
+          <p class="muted">
+            Segmented customers and summarized revenue contribution to support commercial and planning decisions.
+          </p>
         </div>
       </div>
+
       <div style="height:12px"></div>
+
       <div class="item">
-        <b>Research / Thesis (optional)</b>
-        <p class="muted">Summarize your thesis in 2–3 lines and what it proves about your strengths (optimization, modeling, uncertainty, etc.).</p>
+        <b>Research (MASc) — Industrial Engineering</b>
+        <p class="muted">
+          Interested in optimization, supply chain planning, and decision-making under uncertainty—translating complex models into practical insights.
+        </p>
       </div>
+
     </div>
   </section>
 
   <section id="contact" class="section">
     <div class="card">
       <h2>Contact</h2>
-      <p class="muted">Replace the placeholders below with your real links.</p>
+      <p class="muted">Update the links below with your real LinkedIn and GitHub URLs.</p>
+
       <div class="item">
         <p class="muted small">
-          Email: <a href="mailto:yourname@email.com">yourname@email.com</a><br/>
-          LinkedIn: <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">https://www.linkedin.com/...</a><br/>
-          GitHub: <a href="https://github.com/" target="_blank" rel="noreferrer">https://github.com/...</a>
+          Email: <a href="mailto:abdullahalrahi018@gmail.com">abdullahalrahi018@gmail.com</a><br/>
+          LinkedIn: <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">https://www.linkedin.com/in/your-handle</a><br/>
+          GitHub: <a href="https://github.com/" target="_blank" rel="noreferrer">https://github.com/your-handle</a>
         </p>
       </div>
     </div>
   </section>
 
   <footer class="wrap">
-    © <span id="y"></span> Your Name • Built with GitHub Pages
+    © <span id="y"></span> Abdullah Al Rahi • Built with GitHub Pages
   </footer>
 </main>
 
